@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 180" width="100%" height="auto">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .num { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 32px; fill: #111111; font-weight: 400; text-anchor: middle; }
+      .num-left { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 32px; fill: #111111; font-weight: 400; text-anchor: start; }
+      .op { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 30px; fill: #222222; text-anchor: middle; font-weight: 300; }
+      .times { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 26px; fill: #888888; text-anchor: middle; }
+      .line { stroke: #111111; stroke-width: 2.2; stroke-linecap: round; }
+      .paren { stroke: #111111; stroke-width: 2.4; fill: none; stroke-linecap: round; }
+      .sqrt-path { stroke: #111111; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect x="4" y="4" width="1012" height="172" rx="12" class="bg" stroke="#e5ded0" stroke-width="1.5"/>
+
+  <!-- Left Parenthesis -->
+  <path d="M 45 25 C 22 60, 22 130, 45 165" class="paren" />
+
+  <!-- Fraction 1: (22099 + (365 × 7)) / 8218 -->
+  <g transform="translate(55, 0)">
+    <text x="50" y="72" class="num">22099</text>
+    <text x="112" y="72" class="op">+</text>
+    <text x="132" y="72" class="num">(</text>
+    <text x="165" y="72" class="num">365</text>
+    <text x="202" y="70" class="times">&#215;</text>
+    <text x="224" y="72" class="num">7</text>
+    <text x="242" y="72" class="num">)</text>
+    <!-- Line -->
+    <line x1="0" y1="89" x2="252" y2="89" class="line" />
+    <!-- Bottom: 8218 -->
+    <text x="126" y="130" class="num">8218</text>
+  </g>
+
+  <!-- + -->
+  <text x="335" y="98" class="op">+</text>
+
+  <!-- Fraction 2: 8019 / 9 -->
+  <g transform="translate(360, 0)">
+    <text x="45" y="72" class="num">8019</text>
+    <line x1="0" y1="89" x2="90" y2="89" class="line" />
+    <text x="45" y="130" class="num">9</text>
+  </g>
+
+  <!-- + -->
+  <text x="478" y="98" class="op">+</text>
+
+  <!-- Sqrt: sqrt(8019 + 81) -->
+  <g transform="translate(502, 0)">
+    <path d="M 4 98 L 12 90 L 22 126 L 35 48 L 195 48" class="sqrt-path" />
+    <text x="44" y="96" class="num-left">8019 + 81</text>
+  </g>
+
+  <!-- Right Parenthesis -->
+  <path d="M 714 25 C 737 60, 737 130, 714 165" class="paren" />
+
+  <!-- ÷ 24 -->
+  <text x="746" y="98" class="op">&#247;</text>
+  <text x="780" y="98" class="num">24</text>
+
+  <!-- + -->
+  <text x="825" y="98" class="op">+</text>
+
+  <!-- 22099 ÷ 7 -->
+  <text x="885" y="98" class="num">22099</text>
+  <text x="945" y="98" class="op">&#247;</text>
+  <text x="978" y="98" class="num">7</text>
+</svg>

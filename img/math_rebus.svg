@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 185" width="100%" height="auto">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#241118"/>
+      <stop offset="100%" stop-color="#12080c"/>
+    </linearGradient>
+    <style>
+      .title { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; fill: #f6e27a; font-weight: 700; letter-spacing: 1px; }
+      .name { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 25px; fill: #f6e27a; font-weight: 700; }
+      .num { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 26px; fill: #ffffff; font-weight: 500; }
+      .op { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 26px; fill: #ff7a85; font-weight: 300; }
+      .line { stroke: #d4af37; stroke-width: 2.2; stroke-linecap: round; }
+      .paren { stroke: #ff7a85; stroke-width: 2.6; fill: none; stroke-linecap: round; }
+      .sqrt-path { stroke: #d4af37; stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <!-- Background card -->
+  <rect x="4" y="4" width="1052" height="177" rx="14" fill="url(#cardGrad)" stroke="#d4af37" stroke-width="1.8"/>
+
+  <!-- Card title -->
+  <text x="530" y="32" text-anchor="middle" class="title">📜 ТАЙНЫЙ РЕБУС ШЕФА 📜</text>
+
+  <!-- Left Parenthesis -->
+  <path d="M 46 45 C 22 75, 22 135, 46 165" class="paren" />
+
+  <!-- Fraction 1: (Мира + (Год × Неделя)) / Толя -->
+  <g transform="translate(56, 0)">
+    <!-- Top -->
+    <text x="8" y="85" class="name">Мира</text>
+    <text x="76" y="85" class="op">+</text>
+    <text x="96" y="85" class="num">(</text>
+    <text x="106" y="85" class="name">Год</text>
+    <text x="157" y="84" class="op">&#215;</text>
+    <text x="178" y="85" class="name">Неделя</text>
+    <text x="270" y="85" class="num">)</text>
+    <!-- Line -->
+    <line x1="0" y1="102" x2="284" y2="102" class="line" />
+    <!-- Bottom -->
+    <text x="142" y="142" text-anchor="middle" class="name">Толя</text>
+  </g>
+
+  <!-- + -->
+  <text x="362" y="110" text-anchor="middle" class="op">+</text>
+
+  <!-- Fraction 2: Шеф / 9 -->
+  <g transform="translate(382, 0)">
+    <text x="35" y="85" text-anchor="middle" class="name">Шеф</text>
+    <line x1="0" y1="102" x2="70" y2="102" class="line" />
+    <text x="35" y="142" text-anchor="middle" class="num">9</text>
+  </g>
+
+  <!-- + -->
+  <text x="474" y="110" text-anchor="middle" class="op">+</text>
+
+  <!-- Square Root: sqrt(Шеф + 81) -->
+  <g transform="translate(496, 0)">
+    <path d="M 4 108 L 12 100 L 22 138 L 35 62 L 180 62" class="sqrt-path" />
+    <text x="44" y="108" class="name">Шеф</text>
+    <text x="100" y="108" class="op">+</text>
+    <text x="122" y="108" class="num">81</text>
+  </g>
+
+  <!-- Right Parenthesis -->
+  <path d="M 694 45 C 718 75, 718 135, 694 165" class="paren" />
+
+  <!-- ÷ 24 -->
+  <text x="724" y="110" text-anchor="middle" class="op">&#247;</text>
+  <text x="758" y="110" text-anchor="middle" class="num">24</text>
+
+  <!-- + -->
+  <text x="798" y="110" text-anchor="middle" class="op">+</text>
+
+  <!-- Мира ÷ Неделя -->
+  <g transform="translate(820, 0)">
+    <text x="0" y="110" class="name">Мира</text>
+    <text x="74" y="110" class="op">&#247;</text>
+    <text x="96" y="110" class="name">Неделя</text>
+  </g>
+</svg>
