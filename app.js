@@ -25,6 +25,12 @@ const LS = {
     },
 }
 
+// Сброс старой версии квеста, чтобы все проходили заново
+if (LS.get('shefUnlocked') || LS.get('shefQ')) {
+    LS.set('shefUnlocked', '')
+    LS.set('shefQ', '')
+}
+
 /* Звуковые эффекты через Web Audio API */
 const Sound = {
     ctx: null,
@@ -238,7 +244,7 @@ function books(list) {
     let items
     const render = () => {
         items = list
-            .map((b) => ({ ...b, lock: !!b.locked && !LS.get('shefUnlocked') }))
+            .map((b) => ({ ...b, lock: !!b.locked && !LS.get('shefUnlocked_v2') }))
             .sort((a, b) => a.lock - b.lock)
         L.className = 'shelf'
         L.innerHTML = items
@@ -268,12 +274,12 @@ function books(list) {
 
 function quest(onUnlock) {
     const Q = SITE.quest
-    let i = +LS.get('shefQ') || 0
+    let i = +LS.get('shefQ_v2') || 0
     if (i >= Q.length) i = 0
     const norm = (s) => s.toLowerCase().replace(/ё/g, 'е').trim()
     const step = () => {
         if (i >= Q.length) {
-            LS.set('shefUnlocked', '1')
+            LS.set('shefUnlocked_v2', '1')
             if (onUnlock) onUnlock()
             Sound.fanfare()
             reader(
@@ -283,8 +289,8 @@ function quest(onUnlock) {
             const replayBtn = $('#qr-again')
             if (replayBtn) {
                 replayBtn.onclick = () => {
-                    LS.set('shefQ', 0)
-                    LS.set('shefUnlocked', '')
+                    LS.set('shefQ_v2', 0)
+                    LS.set('shefUnlocked_v2', '')
                     i = 0
                     step()
                 }
@@ -299,7 +305,7 @@ function quest(onUnlock) {
               : ''
         const stepsNav = Q.map(
             (_, idx) =>
-                `<button class="q-dot${idx === i ? ' cur' : idx < i ? ' done' : ''}" data-step="${idx}" title="Печать ${idx + 1}">${idx + 1}</button>`,
+                `<span class="q-dot${idx === i ? ' cur' : idx < i ? ' done' : ''}" title="Печать ${idx + 1}">${idx + 1}</span>`,
         ).join('')
         reader(
             `
@@ -317,19 +323,11 @@ function quest(onUnlock) {
             `,
             'quest',
         )
-        const dots = ov.querySelectorAll('.q-dot')
-        dots.forEach((dot) => {
-            dot.onclick = () => {
-                i = +dot.dataset.step
-                Sound.paper()
-                step()
-            }
-        })
         const resetBtn = $('#q-reset-btn')
         if (resetBtn) {
             resetBtn.onclick = () => {
-                LS.set('shefQ', 0)
-                LS.set('shefUnlocked', '')
+                LS.set('shefQ_v2', 0)
+                LS.set('shefUnlocked_v2', '')
                 i = 0
                 Sound.paper()
                 step()
@@ -344,7 +342,7 @@ function quest(onUnlock) {
 
             if (isAccepted) {
                 i++
-                LS.set('shefQ', i)
+                LS.set('shefQ_v2', i)
                 Sound.pop()
                 step()
             } else {

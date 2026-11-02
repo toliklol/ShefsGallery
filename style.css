@@ -661,16 +661,12 @@ h3 {
     color: #e8d9b0;
     font-size: 13px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: default;
+    user-select: none;
     transition: all 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.q-dot:hover {
-    border-color: var(--gl);
-    transform: scale(1.1);
-    color: #fff;
 }
 .q-dot.cur {
     background: #c3202e;
